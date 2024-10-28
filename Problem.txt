@@ -1,0 +1,72 @@
+# Color Swatches
+
+**Akkio Frontend Technical Assessment**
+
+Use this [color api](https://www.thecolorapi.com/) to build a grid of HSL color swatches that takes in user inputs for saturation (S) and lightness (L), and renders all the named hues for the given S and L values from the API. 
+
+For example, if the user inputs S = 100% and L = 50%, the output colors would be the following:
+
+![Screenshot 2023-09-19 at 12.22.06 AM.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/65d1901f-cf84-4263-bff9-b0f2127dfef9/927d8b58-2a75-467d-b3c8-55d88e785a84/Screenshot_2023-09-19_at_12.22.06_AM.png)
+
+Each swatch should display the visualized color, the color name, and the RGB value. The number of named colors will vary based on the S and L values. Design with performance and user experience in mind. The grid should take advantage of the full width of the window and should be designed responsively. 
+
+The project will be evaluated for functionality, performance, user experience, and code legibility, not visual design. 
+
+**Considerations:**
+
+- How efficiently can the distinct named colors be determined? Can the number of API calls be reduced?*
+- Do all colors need to be rendered at once?
+- When will the API calls be made?
+- What sort of feedback will the user receive? How will loading times be handled?
+
+**Requirements:**
+
+- The project is designed to take 3-4 hours
+- As this is a frontend assessment, please use Javascript. Feel free to use any framework you like or outside libraries.
+- Please add **matt-akkio** and **nadia-akk** to the Github repo, or make it public
+- In the README, please include instructions on how to run the project locally and a short (1-2 paragraphs) summary of why you made the design choices you did.
+- Please reach out (nadia@akk.io) if you have any questions or need clarification!
+
+### *Bonus:
+
+Is there a way to get all the named colors without making 360 calls for each S,L pair?
+
+Assume that the color names always progress in one direction as the hue changes, and can repeat any number of times in a row but can never appear again after the name changes, as illustrated below:
+
+*ie.:*
+
+hsl(0, 100%, 50%): red
+
+hsl(1, 100%, 50%): red
+
+hsl(2, 100%, 50%): red
+
+hsl(3, 100%, 50%): scarlet
+
+hsl(4, 100%, 50%): scarlet
+
+hsl(5, 100%, 50%): vermilion
+
+hsl(6, 100%, 50%): vermilion
+
+…
+
+*but never:*
+
+hsl(0, 100%, 50%): red
+
+hsl(1, 100%, 50%): red
+
+hsl(2, 100%, 50%): red
+
+hsl(3, 100%, 50%): scarlet
+
+hsl(4, 100%, 50%): **red**
+
+hsl(5, 100%, 50%): vermilion
+
+hsl(6, 100%, 50%): vermilion
+
+…
+
+Given this assumption, how could we reduce the number of calls?
